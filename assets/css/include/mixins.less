@@ -1,0 +1,140 @@
+.appearance( @appearance ) {
+    -webkit-appearance: @appearance;
+       -moz-appearance: @appearance;
+            appearance: @appearance;
+}
+
+.box-shadow( @shadow ) {
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow;
+            box-shadow: @shadow;
+}
+
+.box-sizing( @sizing ) {
+    -webkit-box-sizing: @sizing;
+       -moz-box-sizing: @sizing;
+            box-sizing: @sizing;
+}
+
+.gradient( @from, @to ) {
+    background: @from;
+    background: -moz-linear-gradient(top, @from, @to);
+    background: -webkit-linear-gradient(top, @from, @to);
+    background: linear-gradient(to bottom, @from, @to);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@from, endColorstr=@to,GradientType=0 );
+}
+
+.gradient-horizontal( @from, @to) {
+ 	background-color: @from;
+	background-image: -webkit-gradient(linear, left top, right top, from(@from), to(@to));
+	background-image: -webkit-linear-gradient(left, @from, @to);
+	background-image: -moz-linear-gradient(left, @from, @to);
+	background-image: -ms-linear-gradient(left, @from, @to);
+	background-image: -o-linear-gradient(left, @from, @to);
+}
+
+.gradient-radial( @from, @to ) {
+	background: @from;
+	background: -moz-radial-gradient(center, ellipse cover, @from 0%, @to 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, @from 0%, @to 100%);
+	background: radial-gradient(ellipse at center, @from 0%, @to 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@from, endColorstr=@to, GradientType=1 );
+}
+
+.opacity( @opacity ) {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity})";
+    filter: alpha(opacity=@opacity);
+
+    -khtml-opacity: (@opacity / 100);
+      -moz-opacity: (@opacity / 100);
+           opacity: (@opacity / 100);
+}
+
+.perspective( @value: 1000 ) {
+	-webkit-perspective: @value;
+	   -moz-perspective: @value;
+	    -ms-perspective: @value;
+            perspective: @value;
+}
+
+.placeholder( @color ) {
+	&:-webkit-input-placeholder { color: @color; }
+	    &:-ms-input-placeholder { color: @color; }
+	        &::-moz-placeholder { color: @color; }
+			 &:-moz-placeholder { color: @color; }
+			     &::placeholder { color: @color; }
+
+}
+
+.radius( @radius ) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+    
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding;
+            background-clip: padding-box;
+}
+
+// Set the border radius of each corner:
+.radii( @tr, @br, @bl, @tl ) {
+    -webkit-border-top-right-radius: @tr;
+       -moz-border-top-right-radius: @tr;
+            border-top-right-radius: @tr;
+
+    -webkit-border-bottom-right-radius: @br;
+       -moz-border-bottom-right-radius: @br;
+            border-bottom-right-radius: @br;
+
+    -webkit-border-bottom-left-radius: @bl;
+       -moz-border-bottom-left-radius: @bl;
+            border-bottom-left-radius: @bl;
+
+    -webkit-border-top-left-radius: @tl;
+       -moz-border-top-left-radius: @tl;
+            border-top-left-radius: @tl;
+}
+
+// Make an element 100% round:
+.round() {
+    .radius(50%);
+}
+
+.rotate( @deg ) {
+    .transform( rotate(@deg) );
+}
+
+.scale( @factor ) {
+    .transform( scale(@factor) );         
+}
+
+.skew (@deg, @deg2) {
+    .transform( skew(@deg, @deg2) );
+}
+
+.transform( @transform ) {
+    -webkit-transform: @transform;
+       -moz-transform: @transform;
+        -ms-transform: @transform;
+         -o-transform: @transform;
+            transform: @transform;
+}
+
+.transform-origin( @x: center, @y: center) {
+	-webkit-transform-origin: @x @y;
+	   -moz-transform-origin: @x @y;
+	    -ms-transform-origin: @x @y;
+         -o-transform-origin: @x @y;
+}
+
+.transition( @transition ) {
+    -webkit-transition: @transition;
+       -moz-transition: @transition;
+        -ms-transition: @transition;
+         -o-transition: @transition;
+            transition: @transition;
+}
+
+.translate( @x, @y: 0, @z: 0 ) {
+    .transform( translate3d(@x, @y, @z) );
+}
